@@ -4,15 +4,20 @@ using namespace std;
 
 #include "BigInt.h"
 
-BigInt::BigInt(unsigned long long n) {
-	while (n) {
-		int x = n % 10;
-		digits.push_back(x);
-		n /= 10;
+inline BigInt::BigInt(unsigned long long n) {
+	if (n == 0) {
+		digits.push_back(0);
+	}
+	else {
+		while (n) {
+			int x = n % 10;
+			digits.push_back(x);
+			n /= 10;
+		}
 	}
 }
 
-BigInt::BigInt(string& s) {
+inline BigInt::BigInt(string& s) {
 	digits = "";
 	for (int i = s.size() - 1; i >= 0; i--) {
 		if (!isdigit(s[i])) {	//check if each char is a number
@@ -24,7 +29,7 @@ BigInt::BigInt(string& s) {
 	}
 }
 
-BigInt::BigInt(char* s) {
+inline BigInt::BigInt(char* s) {
 	digits = "";
 	for (int i = strlen(s) - 1; i >= 0; i--) {
 		if (!isdigit(s[i])) {  
@@ -36,6 +41,6 @@ BigInt::BigInt(char* s) {
 	}
 }
 
-BigInt::BigInt(BigInt &a) {
+inline BigInt::BigInt(BigInt &a) {
 	this->digits = a.digits;
 }

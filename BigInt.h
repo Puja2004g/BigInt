@@ -11,7 +11,7 @@ private:
 
 public:
 	//constructors
-	BigInt();
+	BigInt() : digits(1, 0) {}
 
 	BigInt(unsigned long long n);
 
@@ -50,10 +50,6 @@ public:
 	//post-decrement operator
 	BigInt operator--(int temp);
 
-
-	//direct assignment operator
-	BigInt operator=(BigInt& a);
-
 	//comparison operator
 	bool operator==(BigInt &a);
 	bool operator!=(BigInt &a);
@@ -62,6 +58,29 @@ public:
 	bool operator>(BigInt& a);
 	bool operator>=(BigInt& a);
 	bool operator<=(BigInt& a);
+
+	//assignment operators
+	
+	//direct assignment operator
+	BigInt &operator=(BigInt& a);
+
+	BigInt &operator+=(BigInt& a);
+	BigInt &operator-=(BigInt& a);
+
+	BigInt &operator*=(BigInt& a);
+	//BigInt &operator/=(BigInt& a);
+	//BigInt &operator%=(BigInt& a);
+
+	//arithmetic operators
+	BigInt operator+(BigInt& a);
+	BigInt operator-(BigInt& a);
+
+	BigInt operator*(BigInt& a);
+	//BigInt operator/(BigInt& a);
+	//BigInt operator%(BigInt& a);
+
+	friend ostream &operator<<(ostream &out, BigInt& a);
+	friend istream &operator>>(istream &in, BigInt& a);
 };
 
 
