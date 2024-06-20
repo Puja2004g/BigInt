@@ -79,6 +79,9 @@ public:
 	//BigInt operator/(BigInt& a);
 	//BigInt operator%(BigInt& a);
 
+	//BigInt &operator^=(BigInt & a);
+	//friend BigInt &operator^(BigInt & a, BigInt & b);
+
 	friend ostream &operator<<(ostream &out, BigInt& a);
 	friend istream &operator>>(istream &in, BigInt& a);
 };

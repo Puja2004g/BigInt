@@ -129,4 +129,3 @@ inline BigInt BigInt::operator*(BigInt& a) {
 
 	return temp;
 }
-
